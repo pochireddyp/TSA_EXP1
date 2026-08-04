@@ -1,5 +1,5 @@
 # Ex.No: 01A PLOT A TIME SERIES DATA
-###  Date: 28-07-2026
+###  Date: 25-07-2026
 
 # AIM:
 To develop a Python program to plot a time series data (temperature) by calculating the yearly average temperature from the given dataset using the Pandas and Matplotlib libraries.
@@ -17,21 +17,20 @@ To develop a Python program to plot a time series data (temperature) by calculat
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv("city_temperature.csv", low_memory=False)
-df = df.dropna(subset=["AvgTemperature"])
-yearly = df.groupby("Year")["AvgTemperature"].mean()
-plt.figure(figsize=(10,5))
-plt.plot(yearly.index, yearly.values, marker="o")
-plt.title("Year-wise Average Temperature")
+df = pd.read_csv("AirPassengers.csv")
+df["Month"] = pd.to_datetime(df["Month"])
+plt.figure(figsize=(12,5))
+plt.plot(df["Month"], df["#Passengers"], color="blue")
+plt.title("Air Passengers Over Time")
 plt.xlabel("Year")
-plt.ylabel("Average Temperature (°F)")
+plt.ylabel("Number of Passengers")
 plt.grid(True)
 plt.show()
 ```
 
 # OUTPUT:
 
-<img width="1297" height="588" alt="image" src="https://github.com/user-attachments/assets/38a5843e-14e8-42b9-abe4-d1483773eaa4" />
+<img width="1404" height="587" alt="image" src="https://github.com/user-attachments/assets/d572aae2-48ed-4245-97dd-1dcdddfcfee4" />
 
 # RESULT:
 Thus, the Python program to plot the time series data of the year-wise average temperature from the given dataset was successfully developed and executed using the Pandas and Matplotlib libraries.
